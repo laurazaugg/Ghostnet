@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>GhostNet - Meldung</title>
+    <h:outputStylesheet library="css" name="report.css" />
+</h:head>
+
+<h:body>
+    <div class="container">
+        <div class="logo">
+            <h:graphicImage library="images" name="Logo.jpg" alt="Logo" />
+        </div>
+
+        <div class="title">
+            <h:outputText value="Geisternetz melden" />
+        </div>
+
+        <div class="table">
+            <h:form>
+                <h:outputLabel for="coordinates" styleClass="formText" value="Standort (GPS-Koordinaten):" />
+                <br/>
+                <h:inputText id="coordinates" styleClass="field" required="true" />
+
+                <br/>
+
+                <h:outputLabel for="size" styleClass="formText" value="Geschätzte Größe (in Metern):" />
+                <br/>
+                <h:inputText id="size" styleClass="field" required="true" />
+
+                <br/>
+
+                <h:selectBooleanCheckbox id="anonym" value="#{reportBean.anonym}" styleClass="formBox">
+                    <f:ajax render="nameField numberField" execute="@this"/>
+                </h:selectBooleanCheckbox>
+                <h:outputLabel for="anonym" styleClass="formText" value="anonyme Meldung" />
+
+                <br/>
+
+                <h:panelGroup id="nameField" rendered="#{!reportBean.anonym}">
+                    <h:outputLabel for="name" styleClass="formText" value="Name:" />
+                    <br/>
+                    <h:inputText id="name" alue="#{reportBean.name}" styleClass="field" required="true" />
+                    <br/>
+                </h:panelGroup>
+
+                <h:panelGroup id="numberField" rendered="#{!reportBean.anonym}">
+                    <h:outputLabel for="number" styleClass="formText" value="Telefonnummer:" />
+                    <br/>
+                    <h:inputText id="number" value="#{reportBean.number}" styleClass="field" required="true" />
+                    <br/>
+                </h:panelGroup>
+
+                <h:commandButton value="Netz melden" action="#{reportBean.save}" styleClass="button" />
+            </h:form>
+        </div>
+    </div>
+</h:body>
+</html>

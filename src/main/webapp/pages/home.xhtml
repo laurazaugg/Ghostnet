@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>GhostNet - Startseite</title>
+    <h:outputStylesheet library="css" name="home.css" />
+</h:head>
+
+<h:body>
+    <div class="logoContainer">
+        <div class="logo">
+            <h:graphicImage library="images" name="Logo.jpg" alt="Logo" />
+        </div>
+
+        <div class="welcome">
+            <h:outputText value="Herzlich willkommen bei Shea Sepherd!" />
+        </div>
+
+        <div class="text">
+            <h:outputText value="Shea Sepherd hat es sich zur Aufgabe gemacht, die Meere von sogenannten Geisternetzen zu säubern.
+                        Geisternetzte sind herrenlose Fischernetzte welche im Meer treiben und die Korallen und Meeresbewohner bedrohen." />
+            <br/>
+            <h:outputText value="Dazu wurde diese Webseite aufgebaut. Diese soll der Zusammenarbeit von Findenden und Bergenden dienen.
+                        Personen welche ein Netz finden gebend en Standort ein, so können die bergenden Personen die Netze finden und entfernen."/>
+        </div>
+
+        <div class="button-row">
+            <h:form>
+                <h:commandButton value="Geisternetz melden" action="#{navigation.reportNet}" styleClass="button" />
+                <h:commandButton value="Bergung planen" action="recover.xhtml" styleClass="button" />
+            </h:form>
+        </div>
+    </div>
+</h:body>
+</html>

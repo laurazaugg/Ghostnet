@@ -1,0 +1,48 @@
+.container {
+    margin: 0 auto;
+    text-align: left;
+}
+
+.logo img {
+    width: 200px;
+    height: auto;
+    border-radius: 12px;
+}
+.title {
+    font-family: Monaco, sans-serif;
+    font-size: 4vw;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.table {
+    margin-top: 40px;
+}
+
+.formText {
+    font-family: calibri, sans-serif;
+    margin: 10px auto;
+}
+
+.field {
+    margin: 10px auto;
+    padding: 10px;
+    width: 60%;
+    border: 1px solid #009acd;
+}
+
+.formBox {
+    margin: 10px;
+    padding: 10px;
+}
+
+.button {
+    padding: 10px 30px;
+    background-color: #009acd;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: calibri, sans-serif;
+    margin: 15px;
+
+}
