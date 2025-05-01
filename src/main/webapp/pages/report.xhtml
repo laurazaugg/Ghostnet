@@ -18,38 +18,85 @@
         </div>
 
         <div class="table">
-            <h:form>
+            <h:form id="reportForm">
                 <h:outputLabel for="coordinates" styleClass="formText" value="Standort (GPS-Koordinaten):" />
                 <br/>
-                <h:inputText id="coordinates" styleClass="field" required="true" />
+                <h:inputText
+                        id="coordinates"
+                        styleClass="field"
+                        required="true"
+                        label="Koordinaten"
+                        requiredMessage="Bitte geben Sie die Koordinaten ein."
+                        validatorMessage="Die Koordinaten in folgendem Format: XXX.XXX">
+                    <f:validateRegex pattern="[0-9]+.[0-9]+"/>
+                </h:inputText>
+                <br/>
+                <h:message for="coordinates" styleClass="error"/>
 
                 <br/>
 
                 <h:outputLabel for="size" styleClass="formText" value="Geschätzte Größe (in Metern):" />
                 <br/>
-                <h:inputText id="size" styleClass="field" required="true" />
+                <h:inputText
+                        id="size"
+                        styleClass="field"
+                        required="true"
+                        label="Grösse"
+                        requiredMessage="Bitte geben Sie die ungefähre Grösse ein."
+                        validatorMessage="Bitte geben Sie nur ganze Zahlen ein.">
+                    <f:validateRegex pattern="[0-9]+"/>
+                </h:inputText>
+                <br/>
+                <h:message for="size" styleClass="error"/>
 
                 <br/>
 
-                <h:selectBooleanCheckbox id="anonym" value="#{reportBean.anonym}" styleClass="formBox">
-                    <f:ajax render="nameField numberField" execute="@this"/>
+                <h:selectBooleanCheckbox id="anonym" value="#{reportBean.anonym}" styleClass="checkboxGap">
+                    <f:ajax execute="@this" render="reportForm:nameField reportForm:numberField" />
                 </h:selectBooleanCheckbox>
-                <h:outputLabel for="anonym" styleClass="formText" value="anonyme Meldung" />
+                <h:outputLabel for="anonym" value="anonyme Meldung"/>
 
                 <br/>
-
-                <h:panelGroup id="nameField" rendered="#{!reportBean.anonym}">
-                    <h:outputLabel for="name" styleClass="formText" value="Name:" />
-                    <br/>
-                    <h:inputText id="name" alue="#{reportBean.name}" styleClass="field" required="true" />
-                    <br/>
+                <h:panelGroup id="nameField">
+                    <h:panelGroup layout="block" rendered="#{!reportBean.anonym}">
+                        <h:outputLabel for="name" styleClass="formText" value="Name:" />
+                        <br/>
+                        <h:inputText
+                                id="name"
+                                value="#{reportBean.name}"
+                                styleClass="field"
+                                required="#{!reportBean.anonym}"
+                                label="Name"
+                                requiredMessage="Bitte geben Sie Ihren Namen ein."
+                                validatorMessage="Bitte geben Sie einen gültigen Namen ein.">
+                            <f:validateRegex pattern="[A-Za-zÄÖÜäöüß\s-]{2,40}"/>
+                        </h:inputText>
+                        <br/>
+                        <h:message
+                                for="name"
+                                styleClass="error"/>
+                        <br/>
+                    </h:panelGroup>
                 </h:panelGroup>
 
-                <h:panelGroup id="numberField" rendered="#{!reportBean.anonym}">
-                    <h:outputLabel for="number" styleClass="formText" value="Telefonnummer:" />
-                    <br/>
-                    <h:inputText id="number" value="#{reportBean.number}" styleClass="field" required="true" />
-                    <br/>
+                <h:panelGroup id="numberField">
+                    <h:panelGroup layout="block" rendered="#{!reportBean.anonym}">
+                        <h:outputLabel for="number" styleClass="formText" value="Telefonnummer:" />
+                        <br/>
+                        <h:inputText
+                                id="number"
+                                value="#{reportBean.number}"
+                                styleClass="field"
+                                required="#{!reportBean.anonym}"
+                                label="Telefonnummer"
+                                requiredMessage="Bitte geben Sie Ihre Telefonnummer ein."
+                                validatorMessage="Die Telefonnummer hat ein falsches Format">
+                            <f:validateRegex pattern="^\+?[0-9]{7,20}"/>
+                        </h:inputText>
+                        <br/>
+                        <h:message for="number" styleClass="error"/>
+                        <br/>
+                    </h:panelGroup>
                 </h:panelGroup>
 
                 <h:commandButton value="Netz melden" action="#{reportBean.save}" styleClass="button" />

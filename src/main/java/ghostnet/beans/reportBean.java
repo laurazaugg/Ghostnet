@@ -16,16 +16,31 @@ public class reportBean implements Serializable {
     String size;
     String name;
     String number;
-    boolean anonym = false;
+    private boolean anonym = false;
 
     @Inject
     private GhostnetService ghostnetService;
 
-    public boolean getAnonym() {
+    public String save() {
+        Ghostnet net = new Ghostnet();
+        net.setCoordinates(coordinates);
+        net.setSize(size);
+
+        if(!anonym) {
+            net.setName(name);
+            net.setNumber(number);
+        }
+
+        net.setStatus("Gemeldet");
+        ghostnetService.save(net);
+
+        return "pages/thank.xhtml?faces-redirect=true";
+    }
+    public boolean isAnonym() {
         return anonym;
     }
     public void setAnonym(boolean anonym) {
-        this.anonym = true;
+        this.anonym = anonym;
     }
     public String getCoordinates() {
         return coordinates;
@@ -50,21 +65,5 @@ public class reportBean implements Serializable {
     }
     public void setNumber(String number) {
         this.number = number;
-    }
-
-    public String save() {
-        Ghostnet net = new Ghostnet();
-        net.setCoordinates(coordinates);
-        net.setSize(size);
-
-        if(!anonym) {
-            net.setName(name);
-            net.setNumber(number);
-        }
-
-        net.setStatus("Gemeldet");
-        ghostnetService.save(net);
-
-        return "pages/thank.xhtml?faces-redirect=true";
     }
 }
