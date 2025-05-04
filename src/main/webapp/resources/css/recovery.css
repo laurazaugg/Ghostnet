@@ -75,3 +75,13 @@
     list-style-type: none;
 }
 
+.button {
+    padding: 10px 30px;
+    background-color: #009acd;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: calibri, sans-serif;
+    margin: 5px;
+}
+

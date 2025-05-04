@@ -38,6 +38,29 @@
 }
 .error {
     color: red;
+    border: 1px solid red;
+    padding: 8px;
+    font-size: 0.9em;
+    list-style-type: none;
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+.msgInfo {
+    color: green;
+    border: 1px solid green;
+    padding: 8px;
     font-size: 0.9em;
     margin-top: 5px;
+    margin-bottom: 8px;
+    list-style-type: none;
+}
+
+.msgWarn {
+    color: red;
+    border: 1px solid red;
+    padding: 8px;
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    list-style-type: none;
 }

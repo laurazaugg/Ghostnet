@@ -47,7 +47,8 @@
                     requiredMessage="Bitte geben Sie Ihr Passwort ein.">
             </h:inputText>
             <br/>
-            <h:message for="password" styleClass="error"/>
+            <h:message for="password" styleClass="error" infoClass="msgInfo"
+                       warnClass="msgWarn"/>
 
             <br/>
             <h:commandButton value="Login" action="#{loginBean.login}" styleClass="button" />

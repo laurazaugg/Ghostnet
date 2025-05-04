@@ -45,11 +45,13 @@
                         <h:form>
                             <h:commandButton value="Netz bergen"
                                              action="#{recoveryBean.recoverNet(net)}"
-                                             rendered="#{empty net.recoverer}" />
+                                             rendered="#{empty net.recoverer}"
+                                             styleClass="button"/>
 
                             <h:commandButton value="Geborgen"
                                              action="#{recoveryBean.markAsRecovered(net)}"
-                                             rendered="#{net.status ne 'Geborgen' and net.recoverer eq recoveryBean.currentUser}" />
+                                             rendered="#{net.status ne 'Geborgen' and net.recoverer eq recoveryBean.currentUser}"
+                                             styleClass="button"/>
 
                             <h:outputText value="" rendered="#{not empty net.recoverer}" />
                         </h:form>

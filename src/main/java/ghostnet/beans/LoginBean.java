@@ -24,7 +24,7 @@ public class LoginBean {
             return "/pages/recovery.xhtml?faces-redirect=true";
         } else {
             FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login fehlgeschlagen", "Ungültige Zugangsdaten."));
+                    new FacesMessage(FacesMessage.SEVERITY_WARN, "Login fehlgeschlagen", "Ungültige Zugangsdaten."));
             return null;
         }
     }
