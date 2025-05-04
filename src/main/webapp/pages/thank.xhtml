@@ -3,7 +3,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
     <title>GhostNet - Meldung</title>
-    <h:outputStylesheet library="css" name="report.css" />
+    <h:outputStylesheet library="css" name="thank.css" />
 </h:head>
 
 <h:body>
@@ -14,6 +14,18 @@
 
         <div class="title">
             <h:outputText value="Vielen Dank für Ihre Mithilfe!" />
+        </div>
+
+        <div class="text">
+            <h:outputText value="Das Netz wurde erfolgreich ins Verzeichnis aufgenommen. Die bergenden Personen können dies
+            nun sehen und sich zur Bergung eintragen." />
+        </div>
+
+        <div class="button-row">
+            <h:form>
+                <h:commandButton value="Weiteres Geisternetz melden" action="report.xhtml" styleClass="button"/>
+                <h:commandButton value="zur Homepage" action="home.xhtml" styleClass="button" />
+            </h:form>
         </div>
     </div>
 </h:body>

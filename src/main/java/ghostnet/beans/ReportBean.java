@@ -8,12 +8,13 @@ import jakarta.inject.Named;
 
 import java.io.Serializable;
 
-@Named
+@Named("reportBean")
 @ViewScoped
-public class reportBean implements Serializable {
+public class ReportBean implements Serializable {
     //Net characteristics
-    String coordinates;
-    String size;
+    Double latitude;
+    Double longitude;
+    Integer size;
     String name;
     String number;
     private boolean anonym = false;
@@ -23,7 +24,8 @@ public class reportBean implements Serializable {
 
     public String save() {
         Ghostnet net = new Ghostnet();
-        net.setCoordinates(coordinates);
+        net.setLatitude(latitude);
+        net.setLongitude(longitude);
         net.setSize(size);
 
         if(!anonym) {
@@ -32,9 +34,14 @@ public class reportBean implements Serializable {
         }
 
         net.setStatus("Gemeldet");
-        ghostnetService.save(net);
 
-        return "pages/thank.xhtml?faces-redirect=true";
+        try {
+            ghostnetService.save(net);
+            return "pages/thank.xhtml";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
     public boolean isAnonym() {
         return anonym;
@@ -42,16 +49,22 @@ public class reportBean implements Serializable {
     public void setAnonym(boolean anonym) {
         this.anonym = anonym;
     }
-    public String getCoordinates() {
-        return coordinates;
+    public Double getLatitude() {
+        return latitude;
     }
-    public void setCoordinates(String coordinates) {
-        this.coordinates = coordinates;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
-    public String getSize() {
+    public Double getLongitude() {
+        return longitude;
+    }
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+    public Integer getSize() {
         return size;
     }
-    public void setSize(String size) {
+    public void setSize(Integer size) {
         this.size = size;
     }
     public String getName() {

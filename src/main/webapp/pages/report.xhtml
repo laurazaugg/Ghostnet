@@ -19,19 +19,40 @@
 
         <div class="table">
             <h:form id="reportForm">
-                <h:outputLabel for="coordinates" styleClass="formText" value="Standort (GPS-Koordinaten):" />
+                <h:outputLabel styleClass="formText" value="Standort (GPS-Koordinaten):" />
+                <br/><br/>
+
+                <h:outputLabel for="latitude" styleClass="formText" value="Breite:" />
                 <br/>
                 <h:inputText
-                        id="coordinates"
+                        id="latitude"
+                        value="#{reportBean.latitude}"
                         styleClass="field"
                         required="true"
-                        label="Koordinaten"
-                        requiredMessage="Bitte geben Sie die Koordinaten ein."
-                        validatorMessage="Die Koordinaten in folgendem Format: XXX.XXX">
-                    <f:validateRegex pattern="[0-9]+.[0-9]+"/>
+                        label="Breite"
+                        requiredMessage="Bitte geben Sie die Breitenkoordinaten ein."
+                        validatorMessage="Die Koordinaten müssen in der Range -90 - 90 liegen">
+                    <f:validateDoubleRange minimum="-91.0" maximum="91.0" />
                 </h:inputText>
                 <br/>
-                <h:message for="coordinates" styleClass="error"/>
+                <h:message for="latitude" styleClass="error"/>
+
+                <br/>
+
+                <h:outputLabel for="longitude" styleClass="formText" value="Länge:" />
+                <br/>
+                <h:inputText
+                        id="longitude"
+                        value="#{reportBean.longitude}"
+                        styleClass="field"
+                        required="true"
+                        label="Länge"
+                        requiredMessage="Bitte geben Sie die Längenkoordinaten ein."
+                        validatorMessage="Die Koordinaten müssen in der Range -180 - 180 liegen">
+                    <f:validateDoubleRange minimum="-181.0" maximum="181.0" />
+                </h:inputText>
+                <br/>
+                <h:message for="longitude" styleClass="error"/>
 
                 <br/>
 
@@ -39,12 +60,13 @@
                 <br/>
                 <h:inputText
                         id="size"
+                        value="#{reportBean.size}"
                         styleClass="field"
                         required="true"
                         label="Grösse"
                         requiredMessage="Bitte geben Sie die ungefähre Grösse ein."
                         validatorMessage="Bitte geben Sie nur ganze Zahlen ein.">
-                    <f:validateRegex pattern="[0-9]+"/>
+                    <f:validateLongRange minimum="1" maximum="10000"/>
                 </h:inputText>
                 <br/>
                 <h:message for="size" styleClass="error"/>

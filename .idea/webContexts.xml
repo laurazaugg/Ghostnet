@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/Pages/home.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/Pages" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/pages/recovery.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/pages" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/pages/report.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/pages" />
       </map>
     </option>

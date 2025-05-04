@@ -10,7 +10,9 @@
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ghostnet"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
             <property name="jakarta.persistence.jdbc.password" value="passwort"/>
-            <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
+            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+<!--            <property name="openjpa.jdbc.DBDictionary" value="hsql(SimulateLocking=true)"/>-->
+            <property name="openjpa.jdbc.DBDictionary" value="mysql"/>
         </properties>
     </persistence-unit>
 </persistence>

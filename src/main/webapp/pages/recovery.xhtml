@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>GhostNet - Login</title>
+    <h:outputStylesheet library="css" name="recovery.css" />
+</h:head>
+
+<h:body>
+    <div class="container">
+        <div class="logo">
+            <h:graphicImage library="images" name="Logo.jpg" alt="Logo" />
+        </div>
+
+        <div class="title">
+            <h:outputText value="Bergung" />
+        </div>
+
+        <div class="tableContainer">
+            <h:panelGrid columns="2" columnClasses="tableCol,messageCol">
+            <!--Tabelle-->
+                <h:dataTable value="#{recoveryBean.netList}" var="net" styleClass="table">
+                    <h:column>
+                        <f:facet name="header">Koordinaten</f:facet>
+                        #{net.latitude}, #{net.longitude}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Grösse</f:facet>
+                        #{net.size}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Status</f:facet>
+                        #{net.status}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Berger</f:facet>
+                        <h:outputText value="#{net.recoverer}" rendered="#{not empty net.recoverer}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Aktion</f:facet>
+                        <h:form>
+                            <h:commandButton value="Netz bergen"
+                                             action="#{recoveryBean.recoverNet(net)}"
+                                             rendered="#{empty net.recoverer}" />
+
+                            <h:commandButton value="Geborgen"
+                                             action="#{recoveryBean.markAsRecovered(net)}"
+                                             rendered="#{net.status ne 'Geborgen' and net.recoverer eq recoveryBean.currentUser}" />
+
+                            <h:outputText value="" rendered="#{not empty net.recoverer}" />
+                        </h:form>
+                    </h:column>
+                </h:dataTable>
+                <!--Meldung-->
+                <h:messages globalOnly="true"
+                            infoClass="msgInfo"
+                            warnClass="msgWarn"
+                />
+            </h:panelGrid>
+        </div>
+    </div>
+</h:body>
+</html>

@@ -9,31 +9,44 @@ import jakarta.persistence.Id;
 public class Ghostnet {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String coordinates;
-    private String size;
+    private Double latitude;
+    private Double longitude;
+    private Integer size;
     private String name;
     private String number;
     private String status;
 
+    private String recoverer;
+
+
+    public String getRecoverer() {
+        return recoverer;
+    }
+    public void setRecoverer(String recoverer) {
+        this.recoverer = recoverer;
+    }
     public Long getId() {
         return id;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public Double getLatitude() {
+        return latitude;
     }
-    public String getCoordinates() {
-        return coordinates;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
-    public void setCoordinates(String coordinates) {
-        this.coordinates = coordinates;
+    public Double getLongitude() {
+        return longitude;
     }
-    public String getSize() {
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+    public Integer getSize() {
         return size;
     }
-    public void setSize(String size) {
+    public void setSize(Integer size) {
         this.size = size;
     }
     public String getName() {
@@ -41,9 +54,6 @@ public class Ghostnet {
     }
     public void setName(String name) {
         this.name = name;
-    }
-    public String getNumber() {
-        return number;
     }
     public void setNumber(String number) {
         this.number = number;

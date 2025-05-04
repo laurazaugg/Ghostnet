@@ -1,0 +1,49 @@
+.container {
+    margin: 0 auto;
+    text-align: left;
+}
+
+.logo img {
+    width: 200px;
+    height: auto;
+    border-radius: 12px;
+}
+.title {
+    font-family: Monaco, sans-serif;
+    font-size: 4vw;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.welcome {
+    font-family: Monaco, sans-serif;
+    font-size: 5vw;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.text {
+    margin: 15px auto;
+    padding: 20px;
+    width: 90%;
+    border: 2px solid #009acd;
+    font-family: calibri, sans-serif;
+    text-align: center;
+}
+
+.button-row {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.button {
+    padding: 10px 30px;
+    background-color: #009acd;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: calibri, sans-serif;
+    margin: 30px;
+}
