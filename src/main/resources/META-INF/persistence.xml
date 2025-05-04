@@ -4,7 +4,6 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
              version="3.2">
     <persistence-unit name="ghostnetPU" transaction-type="JTA">
-
         <jta-data-source>jdbc/ghostnetDS</jta-data-source>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ghostnet"/>
