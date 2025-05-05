@@ -6,31 +6,6 @@ Geisternetzen zu entwickeln. Geisternetze sind herrenlose Fischernetze, die im M
 Engineer hat sich bereits im Vorfeld mit ausgewählten Stakeholdern in der Organisation und der Fischerei
 ausgetauscht und dazu die folgende Anforderung in das Fachkonzept geschrieben:
 
-Ein Geisternetz hat die folgenden Eigenschaften:
-- Standort (GPS-Koordinaten),
-- geschätzte Größe und
-- Status.
-
-Der Status eines Geisternetzes kann folgende Ausprägungen haben:
-- Gemeldet (Eine meldende Person hat das Geisternetz im System erfasst.)
-- Bergung bevorstehend (Eine bergende Person hat die Bergung angekündigt.)
-- Geborgen (Eine bergende Person hat das Geisternetz erfolgreich geborgen.)
-- Verschollen (Eine beliebige Person hat festgestellt, dass das Geisternetz am gemeldeten Standort nicht
-auffindbar ist.)
-
-Es gibt meldende und bergende Personen. Beide Arten von Personen sind natürliche Personen mit einem Namen
-und einer Telefonnummer für Rückfragen. Meldende Personen können anonym bleiben und brauchen dann keine
-Telefonnummer. Man kann Netze aber nicht anonym als verschollen melden. Um unnötige Bergungsfahrten und
-Missverständnisse zu vermeiden, können Geisternetze immer nur maximal einer bergenden Person zugeordnet
-werden. Bergende Personen können allerdings mehr als ein Geisternetz gleichzeitig bergen.
-Dazu hat er die folgenden User Stories im Product Backlog hinterlegt und nach der MoSCoW-Methode priorisiert:
-1. MUST: Als meldende Person möchte ich Geisternetze (anonym) erfassen können.
-2. MUST: Als bergende Person will ich mich für die Bergung eines Geisternetzes eintragen können.
-3. MUST: Als bergende Person möchte ich sehen, welche Geisternetze noch zu bergen sind.
-4. MUST: Als bergende Person möchte ich Geisternetze als geborgen melden können. 
-5. COULD: Als bergende Person möchte ich sehen können, wer welche Geisternetze bergen möchte, um sich
-   ggf. abzustimmen und die Bergungen umzuverteilen.
-
 ## Technologie-Stack
 - Java
 - Jakarta EE
